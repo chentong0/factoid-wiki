@@ -170,7 +170,7 @@ function AppDemo({data}) {
 // console.log("Hello, world!");
 // load /static/data/data.json to data waiting for rendering
 let data = {};
-fetch("/static/data/data.json")
+fetch("static/data/data.json")
     .then(response => response.json())
     .then(json => {
         data = json;

@@ -1,17 +1,24 @@
 # FactoidWiki
-Dense X Retrieval: What Retrieval Granularity Should We Use?
+Official repo for the paper -- [Dense X Retrieval: What Retrieval Granularity Should We Use?](https://arxiv.org/abs/2312.06648)
 
-## Building Proposition-level Index and Retrieval for Wikipedia
+## Proposition-level Wikipedia Index for Retrieval
+FactoidWiki features an English Wikipedia dump indexed at the level of propositions for retrieval tasks.
+
+The dataset is hosted on [huggingface](https://huggingface.co/datasets/chentong00/factoid-wiki). The format of the dataset is compatible with the [`pyserini`](https://github.com/castorini/pyserini) library, so that you can use `pyserini` to encode the text into a [`Faiss`](https://github.com/facebookresearch/faiss) VectorDB with any dense retriever of your choice.
+
+FactoidWiki uses an English Wikipedia dump from 2021-10-13, as used in the [Attributed QA](https://arxiv.org/abs/2212.08037) paper. We also release the same Wikipedia dump indexed by sentence or passage for comparsion.   
 
 |             | #unit | Link                                                      |
-|-------------|-------|-----------------------------------------------------------|
+|-------------|-------|-----------------------------------------------------|
 | Proposition | 257M  | [factoid-wiki](https://huggingface.co/datasets/chentong00/factoid-wiki)                   |
 | Sentence    | 114M  | [factoid-wiki-sentence](https://huggingface.co/datasets/chentong00/factoid-wiki-sentence) |
 | Passage     | 41M   | [factoid-wiki-passage](https://huggingface.co/datasets/chentong00/factoid-wiki-passage)   |
 
 ## Segmenting your Documents into Propositions
+The finetuned `FlanT5` model for segmenting passages into propositions can be found in huggingface model hub via [`chentong00/propositionizer-wiki-flan-t5-large`](https://huggingface.co/chentong00/propositionizer-wiki-flan-t5-large).
 
-Example:
+
+Example usage:
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
@@ -47,4 +54,14 @@ Output:
   "Leaning Tower of Pisa now leans at about 3.99 degrees.",
   "The top of Leaning Tower of Pisa is displaced horizontally 3.9 meters (12 ft 10 in) from the center."
 ]
+```
+
+# Citation
+```
+@article{chen2023densex,
+  title={Dense X Retrieval: What Retrieval Granularity Should We Use?},
+  author={Tong Chen and Hongwei Wang and Sihao Chen and Wenhao Yu and Kaixin Ma and Xinran Zhao and Dong Yu and Hongming Zhang},
+  year={2023},
+  url={https://arxiv.org/abs/2312.06648}
+}
 ```

@@ -60,8 +60,9 @@ Output:
 ```
 @article{chen2023densex,
   title={Dense X Retrieval: What Retrieval Granularity Should We Use?},
-  author={Tong Chen and Hongwei Wang and Sihao Chen and Wenhao Yu and Kaixin Ma and Xinran Zhao and Dong Yu and Hongming Zhang},
+  author={Tong Chen and Hongwei Wang and Sihao Chen and Wenhao Yu and Kaixin Ma and Xinran Zhao and Hongming Zhang and Dong Yu},
+  journal={arXiv preprint arXiv:2312.06648},
   year={2023},
-  url={https://arxiv.org/abs/2312.06648}
+  URL = {https://arxiv.org/pdf/2312.06648.pdf}
 }
 ```
